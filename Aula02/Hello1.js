@@ -1,0 +1,1 @@
+console.log(`hello friend ${process.argv[0]}`)
