@@ -1,10 +1,10 @@
 "use strict"
 const knex = require("./db");
 
-if (!process.argv[3]) {
-  console.log("usage: node hello-knex-7.js <id> <nome>");
-  process.exit(0);
-}
+// if (!process.argv[2]) {
+//   console.log("usage: node hello-knex-7.js <id> <nome>");
+//   process.exit(0);
+// }
 
 let q = "update convidado set nomeconvidado = :nome where idconvidado = :id";
 let p = {
@@ -14,6 +14,7 @@ let p = {
 
 knex.raw(q,p).then(() => {
   knex.raw("select * from convidado").then((ret) => {
+    console.log(ret);
     let i = ret.length;
     while(i--){
       console.log(ret[i]);
